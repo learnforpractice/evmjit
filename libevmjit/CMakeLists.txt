@@ -52,7 +52,9 @@ target_include_directories(evmjit SYSTEM PRIVATE ${LLVM_INCLUDE_DIRECTORIES})
 target_include_directories(evmjit PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/gen)
 target_include_directories(evmjit PUBLIC ${EVMJIT_INCLUDE_DIR})
 
-target_link_libraries(evmjit PRIVATE evmc LLVM::JIT)
+target_include_directories(evmjit PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../evmc/include)
+
+target_link_libraries(evmjit PRIVATE LLVM::JIT)
 set_target_properties(evmjit PROPERTIES
 	VERSION ${EVMJIT_VERSION}
 	SOVERSION ${EVMJIT_SOVERSION}
