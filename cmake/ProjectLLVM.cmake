@@ -9,7 +9,7 @@
 #
 # Creates a target representing all required LLVM libraries and include path.
 function(configure_llvm_project)
-    if (LLVM_DIR)
+    if (false) #LLVM_DIR)
         find_package(LLVM REQUIRED CONFIG)
         llvm_map_components_to_libnames(LIBS mcjit ipo x86codegen)
 
